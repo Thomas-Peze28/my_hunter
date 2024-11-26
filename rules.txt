@@ -1,0 +1,8 @@
+RULES :
+
+This game is a Duck Hunt like
+You can shoot ducks to get the highest score !
+
+Click => Left Mouse Button
+
+Have Fun !!
