@@ -7,12 +7,16 @@
 
 SRC	=	main.c	\
 		play.c	\
+		init.c	\
+		init_game.c	\
+		window.c	\
 
 NAME	=	my_hunter
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS = -I./include -L./lib/my -lmy -Wall -Wextra -Werror -l csfml-graphics -l csfml-system -l csfml-window -l csfml-audio
+CFLAGS = -I./include -L./lib/my -lmy -Wall -Wextra -Werror -l csfml-graphics \
+		-l csfml-system -l csfml-window -l csfml-audio
 
 all: build_lib $(OBJ)
 	gcc -o $(NAME) $(OBJ) $(CFLAGS)
