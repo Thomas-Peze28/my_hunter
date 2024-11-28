@@ -14,6 +14,7 @@ void init_window(all_t *ALL)
     WIN.window = sfRenderWindow_create(WIN.video_mode, "MY HUNTER"
     , sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(WIN.window, 60);
+    WIN.life = 1;
 }
 
 void init_duck(all_t *ALL)
@@ -54,4 +55,5 @@ void init(all_t *ALL)
     init_button(ALL);
     init_duck(ALL);
     init_crosshair(ALL);
+    init_over(ALL);
 }

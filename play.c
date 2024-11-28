@@ -27,6 +27,8 @@ void move_duck(all_t *ALL)
     srand(time(NULL));
     DUCKPOS.x += DUCK.speed;
     if (DUCKPOS.x > WIN.video_mode.width) {
+        ALL->parameters.life -= 1;
+        printf("%d\n", ALL->parameters.life);
         DUCKPOS.x = -DUCK.rect.width;
         DUCKPOS.y = randomNumber;
     }
@@ -58,8 +60,8 @@ void play(all_t *ALL)
     sfTime time;
     float seconds;
 
+    sfRenderWindow_setMouseCursorVisible(WIN.window, sfFalse);
     while (sfRenderWindow_isOpen(WIN.window)) {
-        sfRenderWindow_setMouseCursorVisible(WIN.window, sfFalse);
         time = sfClock_getElapsedTime(clock);
         seconds = time.microseconds / 1000000.0f;
         while (sfRenderWindow_pollEvent(WIN.window, &WIN.event)) {
@@ -70,6 +72,8 @@ void play(all_t *ALL)
             move_duck(ALL);
             sfClock_restart(clock);
         }
+        if (ALL->parameters.life == 0)
+            game_over(ALL);
         display(ALL);
     }
 }

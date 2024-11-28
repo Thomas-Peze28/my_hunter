@@ -24,6 +24,7 @@
     #define WIN ALL->parameters
     #define BUTTON ALL->button
     #define BG ALL->background
+    #define BGOVER ALL->over
     #define CROSS ALL->crosshair
     #define DUCK ALL->duck
     #define DUCKPOS ALL->duck.position
@@ -33,6 +34,7 @@ typedef struct parameter_s {
     sfRenderWindow *window;
     sfVideoMode video_mode;
     sfEvent event;
+    int life;
 } parameter_t;
 
 typedef struct image_s {
@@ -56,6 +58,13 @@ typedef struct background_s {
     sfVector2f position;
     sfVector2f scale;
 } background_t;
+
+typedef struct game_over_s {
+    sfTexture *texture;
+    sfSprite *sprite;
+    sfVector2f position;
+    sfVector2f scale;
+} game_over_t;
 
 typedef struct duck_s {
     sfTexture *texture;
@@ -88,6 +97,7 @@ typedef struct all_s {
     duck_t duck;
     crosshair_t crosshair;
     score_t score;
+    game_over_t over;
 } all_t;
 
 void my_putchar(char c);
@@ -102,7 +112,9 @@ void play(all_t *all);
 void init_button(all_t *ALL);
 void init_background(all_t *ALL);
 void init_crosshair(all_t *ALL);
+void init_over(all_t *ALL);
 void display(all_t *ALL);
 void destroy(all_t *ALL);
+void game_over(all_t *ALL);
 
 #endif /* MY_ */

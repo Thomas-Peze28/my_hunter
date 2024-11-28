@@ -47,3 +47,16 @@ void init_crosshair(all_t *ALL)
     sfSprite_setPosition(CROSS.sprite, CROSS.position);
     sfSprite_setScale(CROSS.sprite, CROSS.scale);
 }
+
+void init_over(all_t *ALL)
+{
+    BGOVER.texture = sfTexture_createFromFile("./src/game_over.png", NULL);
+    BGOVER.sprite = sfSprite_create();
+    BGOVER.scale.x = 1.1;
+    BGOVER.scale.y = 1.08;
+    BGOVER.position.x = 0.0;
+    BGOVER.position.y = -10.0;
+    sfSprite_setTexture(BGOVER.sprite, BGOVER.texture, sfTrue);
+    sfSprite_setPosition(BGOVER.sprite, BGOVER.position);
+    sfSprite_setScale(BGOVER.sprite, BGOVER.scale);
+}

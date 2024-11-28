@@ -28,3 +28,21 @@ void destroy(all_t *ALL)
     sfTexture_destroy(ALL->crosshair.texture);
     sfRenderWindow_destroy(ALL->parameters.window);
 }
+
+void analyse_events_over(all_t *ALL)
+{
+    if (WIN.event.type == sfEvtClosed)
+        sfRenderWindow_close(WIN.window);
+}
+
+void game_over(all_t *ALL)
+{
+    while (sfRenderWindow_isOpen(WIN.window)) {
+        while (sfRenderWindow_pollEvent(WIN.window, &WIN.event)) {
+        analyse_events_over(ALL);
+        }
+        sfRenderWindow_clear(WIN.window, sfBlack);
+        sfRenderWindow_drawSprite(WIN.window, ALL->over.sprite, NULL);
+        sfRenderWindow_display(WIN.window);
+    }
+}
