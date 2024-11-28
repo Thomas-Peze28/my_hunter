@@ -26,7 +26,6 @@ void destroy(all_t *ALL)
     sfTexture_destroy(ALL->background.texture);
     sfSprite_destroy(ALL->crosshair.sprite);
     sfTexture_destroy(ALL->crosshair.texture);
-    sfRenderWindow_destroy(ALL->parameters.window);
 }
 
 void analyse_events_over(all_t *ALL)
@@ -37,6 +36,7 @@ void analyse_events_over(all_t *ALL)
 
 void game_over(all_t *ALL)
 {
+    sfRenderWindow_setMouseCursorVisible(WIN.window, sfTrue);
     while (sfRenderWindow_isOpen(WIN.window)) {
         while (sfRenderWindow_pollEvent(WIN.window, &WIN.event)) {
         analyse_events_over(ALL);
