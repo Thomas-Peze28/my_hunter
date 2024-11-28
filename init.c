@@ -14,7 +14,7 @@ void init_window(all_t *ALL)
     WIN.window = sfRenderWindow_create(WIN.video_mode, "MY HUNTER"
     , sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(WIN.window, 60);
-    WIN.life = 1;
+    WIN.life = 3;
 }
 
 void init_duck(all_t *ALL)

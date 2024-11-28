@@ -2,6 +2,7 @@ RULES :
 
 This game is a Duck Hunt like
 You can shoot ducks to get the highest score !
+You have 3 lives be careful
 
 Click => Left Mouse Button
 

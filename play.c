@@ -28,7 +28,6 @@ void move_duck(all_t *ALL)
     DUCKPOS.x += DUCK.speed;
     if (DUCKPOS.x > WIN.video_mode.width) {
         ALL->parameters.life -= 1;
-        printf("%d\n", ALL->parameters.life);
         DUCKPOS.x = -DUCK.rect.width;
         DUCKPOS.y = randomNumber;
     }
